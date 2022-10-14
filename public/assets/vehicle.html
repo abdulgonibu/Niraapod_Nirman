@@ -1,0 +1,394 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="./css/select2.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" href="./vendors/slick/slick.css">
+    <link rel="stylesheet" href="./vendors/slick/slick-theme.css">
+
+    <style>
+        .slick-prev,
+        .slick-next {
+            width: auto;
+            height: auto;
+            background: #00294d;
+            padding: 10px;
+            z-index: 40;
+        }
+
+        .slick-prev:hover,
+        .slick-prev:focus,
+        .slick-next:hover,
+        .slick-next:focus {
+            color: #eee;
+            opacity: 0.8;
+            background: #00294d;
+        }
+
+        .slick-next {
+            margin-right: 18px;
+        }
+
+        .slick-prev {
+            margin-left: 8px;
+        }
+
+        .slick-prev::before {
+            content: "\f053";
+        }
+
+        .slick-next::before {
+            content: "\f054";
+        }
+
+        .slick-prev::before,
+        .slick-next::before {
+            color: #eee;
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+        }
+    </style>
+
+</head>
+
+<body class="font-roboto">
+    <!-- Start Navbar -->
+    <nav class="bg-[#00294d] bg-no-repeat">
+        <div class="flex justify-between container mx-auto pt-5">
+            <img src="./images/logo.png" alt="">
+            <ul class="flex gap-10 text-slate-50">
+                <li><a href="">Home</a></li>
+                <li><a href="">Explore</a></li>
+                <li><a href="">Help</a></li>
+                <li><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                <li><a href="" class="bg-gray-500 px-4 py-2 rounded-sm">Sing in</a></li>
+            </ul>
+        </div>
+
+    </nav>
+    <!-- End Navbar -->
+    <!-- room pic  -->
+    <div class="container py-16">
+        <div class="grid grid-cols-2 gap-5">
+            <div class="flex gap-5 border-r">
+                <img src="./images/vehicle/2.png" class="h-24" alt="">
+                <div class="">
+                    <h6 class="text-xs py-1">
+                        Departure
+                    </h6>
+                    <h4>Dhaka - Chattogram</h4>
+                    <p>15 June 2022</p>
+                </div>
+            </div>
+            <div class="flex gap-5">
+                <img src="./images/vehicle/1.png" class="h-24" alt="">
+                <div class="flex justify-between">
+                    <div class="">
+                        <h6 class="text-xs py-1">
+                            Return
+                        </h6>
+                        <h4>Chattogram - Dhaka</h4>
+                        <p>18 June 2022</p>
+                    </div>
+                    <div class="ml-44 mt-5">
+                        <p class="bg-[#15db05] rounded p-2 text-sm text-white">Modify Search</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div></div>
+
+        <style>
+            tr {
+                border: 1px solid gray;
+
+            }
+
+            th {
+                border: 1px solid gray;
+                padding: 10px;
+            }
+
+            td {
+                border: 1px solid gray;
+                padding: 10px;
+            }
+        </style>
+    </div>
+    <div class="container w-full text-center">
+        <table class="table-auto  border w-full">
+            <thead class="bg-gray-800 text-gray-100 text-sm">
+                <tr>
+                    <th>Departing
+                        Time</th>
+                    <th>Vehicle no</th>
+                    <th>Starting point</th>
+                    <th>Ending point</th>
+                    <th>Route</th>
+                    <th>Seats Available</th>
+                    <th>Vehicle Type</th>
+                    <th>AC/Non AC</th>
+                    <th>Fare/person</th>
+                </tr>
+            </thead>
+            <tbody class="text-sm">
+                <tr>
+                    <td>8.00 am </td>
+                    <td>C1025</td>
+                    <td>Arambag</td>
+                    <td>CTG-BRTC-2 </td>
+                    <td>Dhaka - Chattogram</td>
+                    <td>06</td>
+                    <td>Noah Micro Bus</td>
+                    <td>Non AC</td>
+                    <td> ৳ 2900</td>
+                </tr>
+                <tr>
+                    <td>8.00 am </td>
+                    <td>C1025</td>
+                    <td>Arambag</td>
+                    <td>CTG-BRTC-2 </td>
+                    <td>Dhaka - Chattogram</td>
+                    <td>06</td>
+                    <td>Noah Micro Bus</td>
+                    <td>Non AC</td>
+                    <td> ৳ 2900</td>
+                </tr>
+                <tr>
+                    <td>8.00 am </td>
+                    <td>C1025</td>
+                    <td>Arambag</td>
+                    <td>CTG-BRTC-2 </td>
+                    <td>Dhaka - Chattogram</td>
+                    <td>06</td>
+                    <td>Noah Micro Bus</td>
+                    <td>Non AC</td>
+                    <td> ৳ 2900</td>
+                </tr>
+                <tr>
+                    <td>8.00 am </td>
+                    <td>C1025</td>
+                    <td>Arambag</td>
+                    <td>CTG-BRTC-2 </td>
+                    <td>Dhaka - Chattogram</td>
+                    <td>06</td>
+                    <td>Noah Micro Bus</td>
+                    <td>Non AC</td>
+                    <td> ৳ 2900</td>
+                </tr>
+                <tr>
+                    <td>8.00 am </td>
+                    <td>C1025</td>
+                    <td>Arambag</td>
+                    <td>CTG-BRTC-2 </td>
+                    <td>Dhaka - Chattogram</td>
+                    <td>06</td>
+                    <td>Noah Micro Bus</td>
+                    <td>Non AC</td>
+                    <td> ৳ 2900</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- Start Footer Section -->
+    <footer class="bg-[#00103F] text-white mt-20">
+        <div class="container mx-auto px-5 py-16">
+            <div class="flex flex-col md:flex-row">
+                <div class="basis-2/6">
+                    <div class="p-5">
+                        <img src="./images/logo-mini.png" alt="" class="w-10">
+                        <div>
+                            <h3 class="font-medium mt-4 mb-3">
+                                Call Us
+                            </h3>
+                            <div class="text-sm">
+                                <h4 class="mb-2">+8801962000000</h4>
+                                <h4 class="mb-2">hello@gmail.com</h4>
+                                <h4 class="mb-2">9AM- 5PM, Monday - Friday</h4>
+                                <h4 class="mb-2">198-202, Nawabpur Tower, Room no# 311 Nawabpur Road,Nawabpur,
+                                    Dhaka-1100 Bangladesh.</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="basis-1/6">
+                    <div class="p-4">
+                        <h3 class="font-medium mt-4 mb-3">
+                            Links
+                        </h3>
+                        <ul class="list-none mt-4">
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Start here
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Blogs
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    About us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Contact Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Career
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Courses
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="basis-1/6">
+                    <div class="p-4">
+                        <h3 class="font-medium mt-4 mb-3">
+                            Information
+                        </h3>
+                        <ul class="list-none mt-4">
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Route Map
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Travel Guideline
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Travel advisory
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    About us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Services
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Private Policy
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="basis-2/6">
+                    <div class="p-4">
+                        <h3 class="font-medium mt-4 mb-3">
+                            Sign up for our newsletter
+                        </h3>
+                        <p class="text-sm">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut odit magnam officia sequi
+                            aliquid
+                            facere corporis dolorem beatae? Dolore pariatur illo odio nulla atque quibusdam dicta ut
+                            tempore, suscipit est.
+                        </p>
+                        <p class="mt-4 relative">
+                            <input type="email" placeholder="Your e-mail"
+                                class="w-full p-3 pl-5 bg-white rounded-full text-gray-700 placeholder:text-gray-700">
+                            <span class="absolute top-1 right-2 bg-red-600 px-5 p-2 rounded-full uppercase">
+                                Subscribe
+                            </span>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                &copy; 2022 All rights reserved.
+            </div>
+
+            <div>
+                <a id="scroll-to-top" href="#top"
+                    class="transition hidden shadow bottom-1 right-1 w-14 h-14 rounded-[50%] bg-red-600 hover:opacity-80 z-50 border group">
+                    <i class="fa-solid fa-arrow-up transition pt-5 pl-5 text-white group-hover:-translate-y-2"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer Section -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/jquery-ui.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/custom.js"></script>
+
+
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+
+        $(function () {
+            $("#datepicker2").datepicker();
+        });
+
+        $(function () {
+            $(".datepicker").datepicker();
+        });
+
+        $(document).ready(function () {
+            $('.js-example-basic-multiple').select2();
+        });
+
+        $('.dropify').dropify();
+        document.getElementsByClassName("date").innerHTML = Date();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"
+        integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Slick Carousel JS -->
+    <script src="./vendors/slick/slick.min.js"></script>
+</body>
+
+
+
+
+</html>

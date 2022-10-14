@@ -1,0 +1,437 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="./css/select2.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" href="./vendors/slick/slick.css">
+    <link rel="stylesheet" href="./vendors/slick/slick-theme.css">
+
+    <style>
+        .slick-prev,
+        .slick-next {
+            width: auto;
+            height: auto;
+            background: #00294d;
+            padding: 10px;
+            z-index: 40;
+        }
+
+        .slick-prev:hover,
+        .slick-prev:focus,
+        .slick-next:hover,
+        .slick-next:focus {
+            color: #eee;
+            opacity: 0.8;
+            background: #00294d;
+        }
+
+        .slick-next {
+            margin-right: 18px;
+        }
+
+        .slick-prev {
+            margin-left: 8px;
+        }
+
+        .slick-prev::before {
+            content: "\f053";
+        }
+
+        .slick-next::before {
+            content: "\f054";
+        }
+
+        .slick-prev::before,
+        .slick-next::before {
+            color: #eee;
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+        }
+    </style>
+
+</head>
+
+<body class="font-roboto">
+    <!-- Start Navbar -->
+    <nav class="bg-[#00294d] bg-no-repeat">
+        <div class="flex justify-between container mx-auto pt-5">
+            <img src="./images/logo.png" alt="">
+            <ul class="flex gap-10 text-slate-50">
+                <li><a href="">Home</a></li>
+                <li><a href="">Explore</a></li>
+                <li><a href="">Help</a></li>
+                <li><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                <li><a href="" class="bg-gray-500 px-4 py-2 rounded-sm">Sing in</a></li>
+            </ul>
+        </div>
+
+    </nav>
+    <!-- End Navbar -->
+    <!-- room pic  -->
+    <div class="container py-16 relative">
+        <div class="border-b-2 relative border-gray-400 shadow">
+            <p class="absolute -top-2.5 w-5 h-5 rounded-full bg-gray-300 text-sm text-center text-gray-900"> <span>
+                    1</span>
+                <span class="w-52 text-sm absolute top-8 -left-24">Customer Information</span>
+            </p>
+            <p
+                class="absolute -top-2.5 right-[598px] w-5 h-5 rounded-full bg-gray-300 text-sm text-center text-gray-900">
+                2 <span class="w-52 text-sm absolute top-8 -left-24">Payment Information</span> </p>
+            <p class="absolute -top-2.5 right-0 w-5 h-5 rounded-full bg-gray-300 text-sm text-center text-gray-900">
+                3 <span class="w-52 text-sm absolute top-8 -left-24">Booking Confirmed</span> </p>
+        </div>
+
+        <div class="py-32 w-[600px] mx-auto">
+            <form action="" class="shadow p-5">
+                <h2 class="py-5">Let us know who you are</h2>
+                <div class="space-y-8">
+                    <div>
+                        <label for="" class="
+                            relative">
+
+                            <input type="text"
+                                class="border rounded-sm border-gray-600 focus:outline-none px-3 w-full py-2">
+                            <span class="absolute left-0 -top-6 mx-8 bg-white text-gray-800 font-Inter
+                                px-2">Name*</span>
+                        </label>
+                    </div>
+                    <div>
+                        <label for="" class="
+                            relative">
+
+                            <input type="text"
+                                class="border rounded-sm border-gray-600 focus:outline-none px-3 w-full py-2">
+                            <span class="absolute left-0 -top-6 mx-8 bg-white text-gray-800 font-Inter
+                                px-2">Email*</span>
+                        </label>
+                    </div>
+                    <div class="flex gap-5">
+                        <div class="mb-2 md:mb-0 w-full">
+                            <label for="" class="
+                                  relative">
+
+                                <input type="text"
+                                    class="border rounded-sm border-gray-600 focus:outline-none w-full py-2">
+                                <span class="absolute left-0 -top-6 mx-8 bg-white text-gray-800 font-Inter
+                                     px-2">Phone number*</span>
+                            </label>
+                        </div>
+                        <div class="w-full">
+                            <label for="" class="relative">
+                                <input type="text"
+                                    class="border rounded-sm border-gray-600 focus:outline-none w-full  py-2">
+                                <span class="absolute left-0 -top-6 mx-8 bg-white text-gray-800 font-Inter
+                                     px-2">City/region*</span>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="">
+                    <div class="my-5">
+                        <input type="checkbox" name="" id=""> <span>Please tick if you are making this booking this
+                            for someone else</span>
+                    </div>
+                    <h2 class="font-semibold">Let us know what you need</h2>
+                    <p class="text-xs">Requests are fulfilled on a first come, first served basis. We'll send yours
+                        right after you
+                        book.</p>
+                    <div class="bg-gray-100 p-2 text-sm text-gray-600 rounded-sm">
+                        <p>Do you have a smoking preference?</p>
+                        <div class="my-2">
+                            <input type="radio" name="Non smoking" id=""> <span>Non smoking</span> <input type="radio"
+                                name="Non smoking" id=""> <span>smoking</span>
+                        </div>
+
+                        <p>Do you have a smoking preference?</p>
+                        <div class="my-2">
+                            <input type="radio" name="Non smoking" id=""> <span>I’d like a large bed</span> <input
+                                type="radio" name="Non smoking" id=""> <span> I’d like twin beds</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="bg-[#5d8dfb] p-2 rounded-sm px-8 text-gray-100" type="submit">Next Step</button>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="container mx-auto w-[700px] shadow-sm">
+            <div class="shadow-md p-3 flex">
+                <img src="./images/vector/lock.png" class=" h-6" alt="">
+                <p class="font-bold text-[#5d8dfb] border-r px-2 border-gray-300">Secure Payment</p>
+                <p class="text-xs ml-2 p-1">All card information is fully encrypted, secure and protected.</p>
+            </div>
+
+            <div class="mx-5 py-5">
+                <div class="flex justify-between bg-[#5d8dfb] rounded-sm px-2 ">
+                    <p class="text-sm py-2 text-gray-50 ">CREDIT/DEBIT CARD</p>
+                    <div class="flex gap-2 items-center justify-center text-center">
+                        <img src="./images/vector/visa.png" class="h-4" alt="">
+                        <img src="./images/vector/mastercard.png" alt="">
+                        <img src="./images/vector/aexpress.png" alt="">
+                    </div>
+
+                </div>
+                <p class="text-xs py-2 px-2">Select a payment method</p>
+
+                <div class="border border-gray-400 flex px-2 p-1 gap-2">
+                    <img src="./images/vector/ss.png" class="h-5 text-center mt-1" alt="">
+                    <select name="" id="" class="text-gray-500 js-example-basic-multiple w-full">
+                        <option value="">Visa/Mastercard/American Express</option>
+                        <option value="">Visa/Mastercard/American Express</option>
+                        <option value="">Visa/Mastercard/American Express</option>
+                    </select>
+                </div>
+                <div>
+                    <p class="bg-[#e6f8e1] text-[#22651c]  w-[300px] text-xs text-center shadow">Last step! You are
+                        almost
+                        there.
+                    </p>
+                </div>
+                <div class="flex justify-center items-center mt-5">
+
+                    <div class="basis-2/3">
+
+                        <label class="py-1 block text-sm">Card holder name</label>
+                        <input type="text" class="border w-full border-gray-400  p-2 focus:outline-none text-sm">
+                        <label class="py-1 block text-sm">Credit/Debit Card Number</label>
+                        <input type="text" class="border border-gray-400  p-2 w-full focus:outline-none">
+
+                        <div class="flex justify-between mt-10 gap-20">
+
+                            <div class="flex flex-col">
+                                <label class="py-5 ">Expire Date</label>
+                                <input type="date" class="border border-gray-400  p-2 focus:outline-none ">
+                            </div>
+
+                            <div class="flex text-center">
+                                <div class="flex flex-col">
+                                    <label class="py-5 ">cvc/cvv</label>
+                                    <input type="number" class="border border-gray-400  p-2 focus:outline-none ">
+                                </div>
+                                <div>
+                                    <img src="./images/vector/sfd.png" class=" mt-16" alt="">
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="basis-1/3 ">
+                        <img src="./images/vector/gg.png" class="h-full" alt="">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+
+
+    <!-- Start Footer Section -->
+    <footer class="bg-[#00103F] text-white mt-20">
+        <div class="container mx-auto px-5 py-16">
+            <div class="flex flex-col md:flex-row">
+                <div class="basis-2/6">
+                    <div class="p-5">
+                        <img src="./images/logo-mini.png" alt="" class="w-10">
+                        <div>
+                            <h3 class="font-medium mt-4 mb-3">
+                                Call Us
+                            </h3>
+                            <div class="text-sm">
+                                <h4 class="mb-2">+8801962000000</h4>
+                                <h4 class="mb-2">hello@gmail.com</h4>
+                                <h4 class="mb-2">9AM- 5PM, Monday - Friday</h4>
+                                <h4 class="mb-2">198-202, Nawabpur Tower, Room no# 311 Nawabpur Road,Nawabpur,
+                                    Dhaka-1100 Bangladesh.</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="basis-1/6">
+                    <div class="p-4">
+                        <h3 class="font-medium mt-4 mb-3">
+                            Links
+                        </h3>
+                        <ul class="list-none mt-4">
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Start here
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Blogs
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    About us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Contact Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Career
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Courses
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="basis-1/6">
+                    <div class="p-4">
+                        <h3 class="font-medium mt-4 mb-3">
+                            Information
+                        </h3>
+                        <ul class="list-none mt-4">
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Route Map
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Travel Guideline
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Travel advisory
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    About us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Services
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Private Policy
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="basis-2/6">
+                    <div class="p-4">
+                        <h3 class="font-medium mt-4 mb-3">
+                            Sign up for our newsletter
+                        </h3>
+                        <p class="text-sm">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut odit magnam officia sequi
+                            aliquid
+                            facere corporis dolorem beatae? Dolore pariatur illo odio nulla atque quibusdam dicta ut
+                            tempore, suscipit est.
+                        </p>
+                        <p class="mt-4 relative">
+                            <input type="email" placeholder="Your e-mail"
+                                class="w-full p-3 pl-5 bg-white rounded-full text-gray-700 placeholder:text-gray-700">
+                            <span class="absolute top-1 right-2 bg-red-600 px-5 p-2 rounded-full uppercase">
+                                Subscribe
+                            </span>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                &copy; 2022 All rights reserved.
+            </div>
+
+            <div>
+                <a id="scroll-to-top" href="#top"
+                    class="transition hidden shadow bottom-1 right-1 w-14 h-14 rounded-[50%] bg-red-600 hover:opacity-80 z-50 border group">
+                    <i class="fa-solid fa-arrow-up transition pt-5 pl-5 text-white group-hover:-translate-y-2"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer Section -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/jquery-ui.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/custom.js"></script>
+
+
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+
+        $(function () {
+            $("#datepicker2").datepicker();
+        });
+
+        $(function () {
+            $(".datepicker").datepicker();
+        });
+
+        $(document).ready(function () {
+            $('.js-example-basic-multiple').select2();
+        });
+
+        $('.dropify').dropify();
+        document.getElementsByClassName("date").innerHTML = Date();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"
+        integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Slick Carousel JS -->
+    <script src="./vendors/slick/slick.min.js"></script>
+</body>
+
+
+
+
+</html>

@@ -1,0 +1,754 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="./css/select2.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" href="./vendors/slick/slick.css">
+    <link rel="stylesheet" href="./vendors/slick/slick-theme.css">
+
+    <style>
+        .slick-prev,
+        .slick-next {
+            width: auto;
+            height: auto;
+            background: #00294d;
+            padding: 10px;
+            z-index: 40;
+        }
+
+        .slick-prev:hover,
+        .slick-prev:focus,
+        .slick-next:hover,
+        .slick-next:focus {
+            color: #eee;
+            opacity: 0.8;
+            background: #00294d;
+        }
+
+        .slick-next {
+            margin-right: 18px;
+        }
+
+        .slick-prev {
+            margin-left: 8px;
+        }
+
+        .slick-prev::before {
+            content: "\f053";
+        }
+
+        .slick-next::before {
+            content: "\f054";
+        }
+
+        .slick-prev::before,
+        .slick-next::before {
+            color: #eee;
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+        }
+    </style>
+    <style>
+        .photo-viewer-wrapper {
+            margin: 0 auto;
+            width: 320px;
+
+        }
+
+        #photo-viewer {
+            height: 200px;
+            width: 300px;
+            background-color: #ccc;
+            padding: 4px;
+        }
+
+        .thumbnails .thumb {
+            width: 60px;
+            height: 40px;
+            cursor: pointer;
+            margin-right: 1px;
+        }
+
+        .thumbnails {
+            width: 324px;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+
+        .activeimg {
+            opacity: .3;
+        }
+    </style>
+</head>
+
+<body class="font-roboto">
+    <!-- Start Navbar -->
+    <nav class="bg-[#00294d] ">
+        <div class="flex justify-between container mx-auto py-2">
+            <img src="./images/logo.png" alt="">
+            <ul class="flex gap-10 text-slate-50 justify-center mt-3">
+                <li><a href="">Home</a></li>
+                <li><a href="">Explore</a></li>
+                <li><a href="">Help</a></li>
+                <li><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                <li><a href="" class="bg-[#575757] px-4 py-1 rounded-sm">Sing in</a></li>
+            </ul>
+        </div>
+        <div class=" shadow text-black px-20 mx-auto destination-list container">
+            <form action="" class=" ">
+                <div class="grid grid-cols-5">
+                    <div class=" p-2 relative ">
+
+                        <input type="text"
+                            class="focus:outline-none  py-[2px] rounded-md w-full pl-7 placeholder:text-sm"
+                            placeholder="Enter a destination ">
+                        <i class="fa-solid fa-magnifying-glass absolute text-sm top-3.5 left-3 text-gray-400"></i>
+
+                    </div>
+                    <div class=" p-2  ">
+
+                        <input type="text" id="datepicker2" value="06/07/2022"
+                            class="datepicker px-4 py-[2px] focus:outline-none placeholder:text-sm border rounded-md w-full date">
+                    </div>
+
+
+                    <div class=" p-2  ">
+
+                        <input type="text" id="datepicker2" value="06/07/2022"
+                            class="datepicker px-4 py-[2px] focus:outline-none placeholder:text-sm border rounded-md w-full date">
+                    </div>
+                    <div class=" p-2   rounded-r-lg">
+
+                        <select name="" class="bg-gray-200 js-example-basic-multiple w-full py-1">
+                            <option value="">3 Traveler</option>
+                            <option value="">4 Traveler</option>
+                        </select>
+                    </div>
+                    <div class=" p-2 ">
+                        <input type="button" value="Search"
+                            class="bg-[#ed7d2b] py-[2px] text-slate-50  w-full rounded-lg text-lg font-medium cursor-pointer">
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <!-- content -->
+    <div class="container flex gap-5 py-10 ">
+        <!-- sidebar -->
+
+        <div class="shadow  basis-1/4 ">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d29222.95260555976!2d90.411575!3d23.716369!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x940dc4909ff4d5f4!2sGlobal%20Business%20Solution%20(GBS)!5e0!3m2!1sen!2sbd!4v1655040578947!5m2!1sen!2sbd"
+                height="250" class="w-full" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <p class="py-2 text-center w-ful">Popular filters for Chattogram </p>
+            <p class="border-t py-2 w-full"></p>
+            <div class="text-center">
+                <label for="" class="text-center">Price Range</label><br>
+                <input type="range" class="w-full">
+                <p class="text-[10px]">BDT 1000 - BDT 9000+</p>
+                <p class="border-b py-2 w-full"></p>
+
+            </div>
+            <div class="px-5 text-gray-700">
+                <h1 class=" my-2 text-gray-700">Accommodation Type</h1>
+                <input type="checkbox" class="font-thin" name="" id=""> <label for="">Hotel</label><br>
+                <input type="checkbox" class="font-thin" name="" id=""><label for="" class="ml-1">Hotel
+                    Resort</label>
+
+            </div>
+            <p class="border-b py-2 w-full"></p>
+
+            <div class="px-5 text-gray-700 font-normal">
+                <h1 class=" my-2 text-gray-700 text-center">Amenities</h1>
+                <input type="checkbox" class="font-thin" name="" id=""> <label for="">Free wifi</label><br>
+                <input type="checkbox" class="font-thin" name="" id=""><label for="" class="ml-1">Breakfast
+                    included</label><br>
+                <input type="checkbox" class="font-thin" name="" id=""><label for="" class="ml-1">Breakfast
+                    Pool</label><br>
+                <input type="checkbox" class="font-thin" name="" id=""><label for="" class="ml-1">Breakfast
+                    Free Parking</label>
+
+            </div>
+            <p class="border-b py-2 w-full"></p>
+            <div class="px-2">
+                <p class="text-center py-5">Star Rating</p>
+                <input type="checkbox" name="" id=""> <span class="text-[#ffa820]"> <i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i></span><br>
+                <input type="checkbox" name="" id=""> <span class="text-[#ffa820]"> <i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i></span><br>
+                <input type="checkbox" name="" id=""> <span class="text-[#ffa820]"> <i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span><br>
+                <input type="checkbox" name="" id=""> <span class="text-[#ffa820]"> <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i></span><br>
+                <input type="checkbox" name="" id=""> <span class="text-[#ffa820]"> <i
+                        class="fa-solid fa-star"></i></span><br>
+            </div>
+        </div>
+        <div class=" basis-3/4 ">
+            <div class="grid grid-cols-6 gap-2 border-2 border-gray-300 py-3  rounded-sm px-2 text-center bg-gray-100">
+                <div class="border-r-2 border-gray-300">
+                    <p>Sort</p>
+                </div>
+                <div class="border-r-2 border-gray-300">
+                    <p>Best Match</p>
+                </div>
+                <div class="border-r-2 border-gray-300">
+                    <p>Top reviewed</p>
+                </div>
+                <div class="border-r-2 border-gray-300">
+                    <p>Lowest price first</p>
+                </div>
+                <div class="border-r-2 border-gray-300">
+                    <p>Distance</p>
+                </div>
+                <div class="">
+                    <p>Other deals</p>
+                </div>
+            </div>
+
+            <div class="flex my-10  bg-[#f9f9f9]">
+                <div class="rounded-sm basis-[30%]">
+                    <div class="photo-viewer-wrapper">
+                        <div id="photo-viewer"><img src="./images/resort/2.png" alt="" class="" /></div>
+                        <div class="thumbnails flex justify-center">
+                            <img data-text="IMG1" class="thumb activeimg" src="./images/resort/1.png" alt="" />
+                            <img data-text="IMG2" class="thumb" src="./images/resort/3.png" alt="" />
+                            <img data-text="IMG3" class="thumb" src="./images/resort/1.png" alt="" />
+                            <img data-text="IMG4" class="thumb" src="./images/resort/3.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="border-r p-1 basis-[40%]">
+                    <h1 class="text-[#450303] text-lg font-medium">Sayeman Beach Resort</h1>
+                    <p class="text-[#450303]">Resort Hotel</p>
+                    <div class="flex text-gray-400">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <address> Marine Drive Road,
+                            Kolatali, Cox's Bazar</address>
+                    </div>
+                    <p>Near Beach</p>
+                    <ul class="mt-5 flex gap-1 text-sm">
+                        <li class="shadow border bg-gray-50 px-2"><a href="" class="">Breakfast</a>
+                        </li>
+                        <li class="shadow border bg-gray-50 px-2"><a href="" class="">Fitness Center</a>
+                        </li>
+                        <li class="shadow border bg-gray-50 px-2"><a href="" class="">Parking </a>
+                        </li>
+                        <li class="shadow border bg-gray-50 px-2">+2</li>
+                    </ul>
+                </div>
+                <div class="text-center p-2 basis-[30%]">
+                    <div class=" flex justify-between px-10">
+                        <h4 class="text-[#450303]">Excellent</h4>
+                        <div class="relative">
+                            <img src="./images/resort/Union.png" class=" w-6" alt="">
+                            <p class="absolute top-1 text-sm ">8.1</p>
+                        </div>
+                    </div>
+                    <p class="text-[12px] text-gray-400">8,257 reviews</p>
+                    <h1 class="text-lg text-[#450303] font-medium">BDT 7,550</h1>
+                    <p class="text-[12px] text-gray-400">For 1 room per night</p>
+                    <p class="text-sm py-5">Additional discount for selected
+                        payment methods*</p>
+                    <div
+                        class="flex bg-[#26aed6] items-center gap-1 text-white mx-5 justify-center w-28 text-sm py-1  rounded-md ml-12">
+                        <div class="">
+                            <a href="">Select room</a><i class="fa-solid fa-angle-right"></i>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End resorut & resrurent  details -->
+
+            <div class="flex my-10  bg-[#f9f9f9]">
+
+                <div class="rounded-sm  basis-[30%]">
+                    <div class="photo-viewer-wrapper">
+                        <div id="photo-viewer"><img src="./images/resort/4.png" alt="" class="" /></div>
+                        <div class="thumbnails flex justify-center">
+                            <img data-text="IMG1" class="thumb activeimg" src="./images/resort/1.png" alt="" />
+                            <img data-text="IMG2" class="thumb" src="./images/resort/3.png" alt="" />
+                            <img data-text="IMG3" class="thumb" src="./images/resort/1.png" alt="" />
+                            <img data-text="IMG4" class="thumb" src="./images/resort/3.png" alt="" />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="border-r p-1 basis-[40%]">
+                    <h1 class="text-[#450303] text-lg font-medium">Sayeman Beach Resort</h1>
+                    <p class="text-[#450303]">Resort Hotel</p>
+                    <div class="flex text-gray-400">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <address> Marine Drive Road,
+                            Kolatali, Cox's Bazar</address>
+                    </div>
+                    <p>Near Beach</p>
+                    <ul class="mt-5 flex gap-1 text-sm">
+                        <li class="shadow border bg-gray-50 px-2"><a href="" class="">Breakfast</a>
+                        </li>
+                        <li class="shadow border bg-gray-50 px-2"><a href="" class="">wifi</a>
+                        </li>
+
+                        <li class="shadow border bg-gray-50 px-2">+2</li>
+                    </ul>
+                </div>
+                <div class="text-center p-2 basis-[30%]">
+                    <div class=" flex justify-between px-12">
+                        <h4 class="text-[#450303]">Good</h4>
+                        <div class="relative">
+                            <img src="./images/resort/Union.png" class=" w-6" alt="">
+                            <p class="absolute top-1 text-sm ">7.8</p>
+                        </div>
+                    </div>
+                    <p class="text-[12px] text-gray-400">8,257 reviews</p>
+                    <h1 class="text-lg text-[#450303] font-medium">BDT 7,550</h1>
+                    <p class="text-[12px] text-gray-400">For 1 room per night</p>
+                    <p class="text-sm py-5">Additional discount for selected
+                        payment methods*</p>
+                    <div
+                        class="flex bg-[#26aed6] items-center gap-1 text-white mx-5 text-center justify-center w-28 text-sm py-1 ml-12 rounded-md">
+                        <a href="">Select room</a><i class="fa-solid fa-angle-right"></i>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- End resorut & resrurent  details -->
+            <div class="flex my-10  bg-[#f9f9f9]">
+                <div class="rounded-sm basis-[30%]">
+                    <div class="photo-viewer-wrapper">
+                        <div id="photo-viewer"><img src="./images/resort/2.png" alt="" class="" /></div>
+                        <div class="thumbnails flex justify-center">
+                            <img data-text="IMG1" class="thumb activeimg" src="./images/resort/1.png" alt="" />
+                            <img data-text="IMG2" class="thumb" src="./images/resort/3.png" alt="" />
+                            <img data-text="IMG3" class="thumb" src="./images/resort/1.png" alt="" />
+                            <img data-text="IMG4" class="thumb" src="./images/resort/3.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="border-r p-1 basis-[40%]">
+                    <h1 class="text-[#450303] text-lg font-medium">Sayeman Beach Resort</h1>
+                    <p class="text-[#450303]">Resort Hotel</p>
+                    <div class="flex text-gray-400">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <address> Marine Drive Road,
+                            Kolatali, Cox's Bazar</address>
+                    </div>
+                    <p>Near Beach</p>
+                    <ul class="mt-5 flex gap-1 text-sm">
+                        <li class="shadow border bg-gray-50 px-2"><a href="" class="">Breakfast</a>
+                        </li>
+                        <li class="shadow border bg-gray-50 px-2"><a href="" class="">Fitness Center</a>
+                        </li>
+                        <li class="shadow border bg-gray-50 px-2"><a href="" class="">Parking </a>
+                        </li>
+                        <li class="shadow border bg-gray-50 px-2">+2</li>
+                    </ul>
+                </div>
+                <div class="text-center p-2 basis-[30%]">
+                    <div class=" flex justify-between px-10">
+                        <h4 class="text-[#450303]">Excellent</h4>
+                        <div class="relative">
+                            <img src="./images/resort/Union.png" class=" w-6" alt="">
+                            <p class="absolute top-1 text-sm ">8.1</p>
+                        </div>
+                    </div>
+                    <p class="text-[12px] text-gray-400">8,257 reviews</p>
+                    <h1 class="text-lg text-[#450303] font-medium">BDT 7,550</h1>
+                    <p class="text-[12px] text-gray-400">For 1 room per night</p>
+                    <p class="text-sm py-5">Additional discount for selected
+                        payment methods*</p>
+                    <div
+                        class="flex bg-[#26aed6] items-center gap-1 text-white mx-5 justify-center w-28 text-sm py-1  rounded-md ml-12">
+                        <div class="">
+                            <a href="">Select room</a><i class="fa-solid fa-angle-right"></i>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End resorut & resrurent  details -->
+
+            <div class="flex my-10  bg-[#f9f9f9]">
+
+                <div class="rounded-sm  basis-[30%]">
+                    <div class="photo-viewer-wrapper">
+                        <div id="photo-viewer"><img src="./images/resort/4.png" alt="" class="" /></div>
+                        <div class="thumbnails flex justify-center">
+                            <img data-text="IMG1" class="thumb activeimg" src="./images/resort/1.png" alt="" />
+                            <img data-text="IMG2" class="thumb" src="./images/resort/3.png" alt="" />
+                            <img data-text="IMG3" class="thumb" src="./images/resort/1.png" alt="" />
+                            <img data-text="IMG4" class="thumb" src="./images/resort/3.png" alt="" />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="border-r p-1 basis-[40%]">
+                    <h1 class="text-[#450303] text-lg font-medium">Sayeman Beach Resort</h1>
+                    <p class="text-[#450303]">Resort Hotel</p>
+                    <div class="flex text-gray-400">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <address> Marine Drive Road,
+                            Kolatali, Cox's Bazar</address>
+                    </div>
+                    <p>Near Beach</p>
+                    <ul class="mt-5 flex gap-1 text-sm">
+                        <li class="shadow border bg-gray-50 px-2"><a href="" class="">Breakfast</a>
+                        </li>
+                        <li class="shadow border bg-gray-50 px-2"><a href="" class="">wifi</a>
+                        </li>
+
+                        <li class="shadow border bg-gray-50 px-2">+2</li>
+                    </ul>
+                </div>
+                <div class="text-center p-2 basis-[30%]">
+                    <div class=" flex justify-between px-12">
+                        <h4 class="text-[#450303]">Good</h4>
+                        <div class="relative">
+                            <img src="./images/resort/Union.png" class=" w-6" alt="">
+                            <p class="absolute top-1 text-sm ">7.8</p>
+                        </div>
+                    </div>
+                    <p class="text-[12px] text-gray-400">8,257 reviews</p>
+                    <h1 class="text-lg text-[#450303] font-medium">BDT 7,550</h1>
+                    <p class="text-[12px] text-gray-400">For 1 room per night</p>
+                    <p class="text-sm py-5">Additional discount for selected
+                        payment methods*</p>
+                    <div
+                        class="flex bg-[#26aed6] items-center gap-1 text-white mx-5 text-center justify-center w-28 text-sm py-1 ml-12 rounded-md">
+                        <a href="">Select room</a><i class="fa-solid fa-angle-right"></i>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- End resorut & resrurent  details -->
+
+            <div class="flex my-10  bg-[#f9f9f9]">
+                <div class="rounded-sm basis-[30%]">
+                    <div class="photo-viewer-wrapper">
+                        <div id="photo-viewer"><img src="./images/resort/2.png" alt="" class="" /></div>
+                        <div class="thumbnails flex justify-center">
+                            <img data-text="IMG1" class="thumb activeimg" src="./images/resort/1.png" alt="" />
+                            <img data-text="IMG2" class="thumb" src="./images/resort/3.png" alt="" />
+                            <img data-text="IMG3" class="thumb" src="./images/resort/1.png" alt="" />
+                            <img data-text="IMG4" class="thumb" src="./images/resort/3.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="border-r p-1 basis-[40%]">
+                    <h1 class="text-[#450303] text-lg font-medium">Sayeman Beach Resort</h1>
+                    <p class="text-[#450303]">Resort Hotel</p>
+                    <div class="flex text-gray-400">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <address> Marine Drive Road,
+                            Kolatali, Cox's Bazar</address>
+                    </div>
+                    <p>Near Beach</p>
+                    <ul class="mt-5 flex gap-1 text-sm">
+                        <li class="shadow border bg-gray-50 px-2"><a href="" class="">Breakfast</a>
+                        </li>
+                        <li class="shadow border bg-gray-50 px-2"><a href="" class="">Fitness Center</a>
+                        </li>
+                        <li class="shadow border bg-gray-50 px-2"><a href="" class="">Parking </a>
+                        </li>
+                        <li class="shadow border bg-gray-50 px-2">+2</li>
+                    </ul>
+                </div>
+                <div class="text-center p-2 basis-[30%]">
+                    <div class=" flex justify-between px-10">
+                        <h4 class="text-[#450303]">Excellent</h4>
+                        <div class="relative">
+                            <img src="./images/resort/Union.png" class=" w-6" alt="">
+                            <p class="absolute top-1 text-sm ">8.1</p>
+                        </div>
+                    </div>
+                    <p class="text-[12px] text-gray-400">8,257 reviews</p>
+                    <h1 class="text-lg text-[#450303] font-medium">BDT 7,550</h1>
+                    <p class="text-[12px] text-gray-400">For 1 room per night</p>
+                    <p class="text-sm py-5">Additional discount for selected
+                        payment methods*</p>
+                    <div
+                        class="flex bg-[#26aed6] items-center gap-1 text-white mx-5 justify-center w-28 text-sm py-1  rounded-md ml-12">
+                        <div class="">
+                            <a href="">Select room</a><i class="fa-solid fa-angle-right"></i>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End resorut & resrurent  details -->
+
+            <div class="flex my-10  bg-[#f9f9f9]">
+
+                <div class="rounded-sm  basis-[30%]">
+                    <div class="photo-viewer-wrapper">
+                        <div id="photo-viewer"><img src="./images/resort/4.png" alt="" class="" /></div>
+                        <div class="thumbnails flex justify-center">
+                            <img data-text="IMG1" class="thumb activeimg" src="./images/resort/1.png" alt="" />
+                            <img data-text="IMG2" class="thumb" src="./images/resort/3.png" alt="" />
+                            <img data-text="IMG3" class="thumb" src="./images/resort/1.png" alt="" />
+                            <img data-text="IMG4" class="thumb" src="./images/resort/3.png" alt="" />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="border-r p-1 basis-[40%]">
+                    <h1 class="text-[#450303] text-lg font-medium">Sayeman Beach Resort</h1>
+                    <p class="text-[#450303]">Resort Hotel</p>
+                    <div class="flex text-gray-400">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <address> Marine Drive Road,
+                            Kolatali, Cox's Bazar</address>
+                    </div>
+                    <p>Near Beach</p>
+                    <ul class="mt-5 flex gap-1 text-sm">
+                        <li class="shadow border bg-gray-50 px-2"><a href="" class="">Breakfast</a>
+                        </li>
+                        <li class="shadow border bg-gray-50 px-2"><a href="" class="">wifi</a>
+                        </li>
+
+                        <li class="shadow border bg-gray-50 px-2">+2</li>
+                    </ul>
+                </div>
+                <div class="text-center p-2 basis-[30%]">
+                    <div class=" flex justify-between px-12">
+                        <h4 class="text-[#450303]">Good</h4>
+                        <div class="relative">
+                            <img src="./images/resort/Union.png" class=" w-6" alt="">
+                            <p class="absolute top-1 text-sm ">7.8</p>
+                        </div>
+                    </div>
+                    <p class="text-[12px] text-gray-400">8,257 reviews</p>
+                    <h1 class="text-lg text-[#450303] font-medium">BDT 7,550</h1>
+                    <p class="text-[12px] text-gray-400">For 1 room per night</p>
+                    <p class="text-sm py-5">Additional discount for selected
+                        payment methods*</p>
+                    <div
+                        class="flex bg-[#26aed6] items-center gap-1 text-white mx-5 text-center justify-center w-28 text-sm py-1 ml-12 rounded-md">
+                        <a href="">Select room</a><i class="fa-solid fa-angle-right"></i>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- End resorut & resrurent  details -->
+
+        </div>
+    </div>
+    <!-- content -->
+
+    <!-- End hotel & resrurent   -->
+    <!-- Start Footer Section -->
+    <footer class=" bg-[#00103F] text-white mt-20">
+        <div class="container mx-auto px-5 py-16">
+            <div class="flex flex-col md:flex-row">
+                <div class="basis-2/6">
+                    <div class="p-5">
+                        <img src="./images/logo-mini.png" alt="" class="w-10">
+                        <div>
+                            <h3 class="font-medium mt-4 mb-3">
+                                Call Us
+                            </h3>
+                            <div class="text-sm">
+                                <h4 class="mb-2">+8801962000000</h4>
+                                <h4 class="mb-2">hello@gmail.com</h4>
+                                <h4 class="mb-2">9AM- 5PM, Monday - Friday</h4>
+                                <h4 class="mb-2">198-202, Nawabpur Tower, Room no# 311 Nawabpur Road,Nawabpur,
+                                    Dhaka-1100 Bangladesh.</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="basis-1/6">
+                    <div class="p-4">
+                        <h3 class="font-medium mt-4 mb-3">
+                            Links
+                        </h3>
+                        <ul class="list-none mt-4">
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Start here
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Blogs
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    About us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Contact Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Career
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Courses
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="basis-1/6">
+                    <div class="p-4">
+                        <h3 class="font-medium mt-4 mb-3">
+                            Information
+                        </h3>
+                        <ul class="list-none mt-4">
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Route Map
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Travel Guideline
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Travel advisory
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    About us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Services
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm">
+                                    <i class="fa-solid fa-chevron-right text-xs mr-3"></i>
+                                    Private Policy
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="basis-2/6">
+                    <div class="p-4">
+                        <h3 class="font-medium mt-4 mb-3">
+                            Sign up for our newsletter
+                        </h3>
+                        <p class="text-sm">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut odit magnam officia sequi
+                            aliquid
+                            facere corporis dolorem beatae? Dolore pariatur illo odio nulla atque quibusdam dicta ut
+                            tempore, suscipit est.
+                        </p>
+                        <p class="mt-4 relative">
+                            <input type="email" placeholder="Your e-mail"
+                                class="w-full p-3 pl-5 bg-white rounded-full text-gray-700 placeholder:text-gray-700">
+                            <span class="absolute top-1 right-2 bg-red-600 px-5 p-2 rounded-full uppercase">
+                                Subscribe
+                            </span>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                &copy; 2022 All rights reserved.
+            </div>
+
+            <div>
+                <a id="scroll-to-top" href="#top"
+                    class="transition hidden shadow bottom-1 right-1 w-14 h-14 rounded-[50%] bg-red-600 hover:opacity-80 z-50 border group">
+                    <i class="fa-solid fa-arrow-up transition pt-5 pl-5 text-white group-hover:-translate-y-2"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer Section -->
+
+    <!-- End Footer Section -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/jquery-ui.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/custom.js"></script>
+
+
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+
+        $(function () {
+            $("#datepicker2").datepicker();
+        });
+
+        $(function () {
+            $(".datepicker").datepicker();
+        });
+
+        $(document).ready(function () {
+            $('.js-example-basic-multiple').select2();
+        });
+
+        $('.dropify').dropify();
+        document.getElementsByClassName("date").innerHTML = Date();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"
+        integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Slick Carousel JS -->
+    <script src="./vendors/slick/slick.min.js"></script>
+
+</body>
+
+
+
+
+</html>
